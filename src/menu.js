@@ -1,13 +1,8 @@
-import { Menu } from './core/menu';
+import {Menu} from './core/menu'
 
 export class ContextMenu extends Menu {
-  constructor(selector) {
-    super(selector);
-  }
-  open() {
-    this.el.classList.add('open');
-  }
 
+<<<<<<< HEAD
   close() {
     this.el.classList.remove('open');
   }
@@ -24,3 +19,6 @@ export class ContextMenu extends Menu {
     
   }
 }
+=======
+}
+>>>>>>> 96fc77c4ef136153c773d1aa1a6d05d3b23c6584
