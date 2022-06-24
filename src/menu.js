@@ -19,6 +19,7 @@ export class ContextMenu extends Menu {
     menuItemHTML.addEventListener('click', () => {
       menuItem.trigger();
       this.el.classList.remove('open');
+      //СОрян 
     })
     
   }
