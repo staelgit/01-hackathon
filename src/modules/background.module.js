@@ -9,13 +9,12 @@ export class BackgroundModule extends Module {
     return random(100, 255);
   }
   trigger() {
-    document.body.style.backgroundColor =
-      "rgb(" +
-      this.setColor() +
-      "," +
-      this.setColor() +
-      "," +
-      this.setColor() +
-      ")";
+    document.body.style.backgroundColor = `rgb(
+      ${this.setColor()} 
+      , 
+      ${this.setColor()} 
+      , 
+      ${this.setColor()} 
+      )`;
   }
 }
