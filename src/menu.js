@@ -18,8 +18,7 @@ export class ContextMenu extends Menu {
     const menuItemHTML = this.el.querySelector(`[data-type="${menuItem.type}"]`);
     menuItemHTML.addEventListener('click', () => {
       menuItem.trigger();
-      this.el.classList.remove('open');
-      //сорян
+      this.close();
     })
     
   }
