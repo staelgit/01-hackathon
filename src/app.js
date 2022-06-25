@@ -5,16 +5,17 @@ import { ContextMenu } from './menu';
 // -------- импортируем сюда свой класс --------
 import { SayKuku } from './modules/kuku.module'; // для примера
 import { BackgroundModule } from './modules/background.module';
+import { RandomFigure } from './modules/random-figure';
 import { ClicksModule } from './modules/clicks.module';
-import { ShapeModule } from './modules/shape.module';
 
 const contextMenu = new ContextMenu('.menu');
 
 // -------- генерируем пунк меню из своего класса --------
 contextMenu.add(new SayKuku()); // для примера
 contextMenu.add(new BackgroundModule());
+contextMenu.add(new RandomFigure());                 
 // contextMenu.add(new ClicksModule());
-// contextMenu.add(new ShapeModule());
+
 
 document.body.addEventListener('contextmenu', (event) => {
   event.preventDefault();
