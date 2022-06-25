@@ -6,13 +6,13 @@ export class AnimatedBackground extends Module {
   }
 
   trigger() {
-    const animatedBackgroundContainer = document.createElement('div');
-    const body = document.body;
-    animatedBackgroundContainer.className = 'animated-background';
-    body.style.backgroundColor = 'white';
-    body.querySelector('canvas')?.remove();
-    body.prepend(animatedBackgroundContainer);
-    animatedBackgroundContainer.insertAdjacentHTML(
+    const animatedBackgroundHTML = document.createElement('div');
+    const bodyHTML = document.body;
+    animatedBackgroundHTML.className = 'animated-background';
+    bodyHTML.style.backgroundColor = 'white';
+    bodyHTML.querySelector('canvas')?.remove();
+    bodyHTML.prepend(animatedBackgroundHTML);
+    animatedBackgroundHTML.insertAdjacentHTML(
       'afterbegin',
       `<svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
         <defs>
@@ -124,20 +124,21 @@ export class AnimatedBackground extends Module {
       `
     );
     let seconds = 5;
-    const timer = document.createElement('div');
-    timer.className = 'animated-background__timer';
-    animatedBackgroundContainer.prepend(timer);
-    timer.innerText = 5;
-        
+    const timerHTML = document.createElement('div');
+    timerHTML.className = 'animated-background__timer';
+    animatedBackgroundHTML.prepend(timerHTML);
+    timerHTML.innerText = seconds;
+
     const timerId = setInterval(() => {
-        seconds -= 1;
-        timer.innerText = seconds;
+      seconds -= 1;
+      timerHTML.innerText = seconds;
     }, 1000);
-    setTimeout(() => { clearInterval(timerId) }, 5000);
-    
+    setTimeout(() => {
+      clearInterval(timerId);
+    }, 5000);
 
     setTimeout(() => {
-      animatedBackgroundContainer.remove();
+      animatedBackgroundHTML.remove();
     }, 5000);
   }
 }
