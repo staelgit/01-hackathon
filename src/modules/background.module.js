@@ -10,6 +10,12 @@ export class BackgroundModule extends Module {
   }
   trigger() {
     document.body.style.backgroundColor =
-      "rgb(" + setColor() + "," + setColor() + "," + setColor() + ")";
+      "rgb(" +
+      this.setColor() +
+      "," +
+      this.setColor() +
+      "," +
+      this.setColor() +
+      ")";
   }
 }
