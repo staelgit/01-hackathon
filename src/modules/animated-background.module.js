@@ -8,14 +8,17 @@ export class AnimatedBackground extends Module {
   }
 
   trigger() {
-    let animatedBackgroundHTML = document.querySelector('.animated-background');
-    if (animatedBackgroundHTML) {animatedBackgroundHTML.remove()};
-    animatedBackgroundHTML = document.createElement('div');
     const bodyHTML = document.body;
-    animatedBackgroundHTML.className = 'animated-background';
-    bodyHTML.style.backgroundColor = 'white';
+    
     bodyHTML.querySelector('canvas')?.remove();
+    bodyHTML.querySelector('.animated-background')?.remove();
+
+    const animatedBackgroundHTML = document.createElement('div');
+    animatedBackgroundHTML.className = 'animated-background';
+
+    bodyHTML.style.backgroundColor = '';
     bodyHTML.prepend(animatedBackgroundHTML);
+
     animatedBackgroundHTML.insertAdjacentHTML(
       'afterbegin',
       `<svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
@@ -127,11 +130,13 @@ export class AnimatedBackground extends Module {
       </div>
       `
     );
+
     let timerСounter = this.#timeToDisplay;
     const timerHTML = document.createElement('div');
+
     timerHTML.className = 'animated-background__timer';
-    animatedBackgroundHTML.prepend(timerHTML);
     timerHTML.innerText = timerСounter;
+    animatedBackgroundHTML.prepend(timerHTML);
 
     const timerId = setInterval(() => {
       timerСounter -= 1;
