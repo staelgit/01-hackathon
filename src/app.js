@@ -6,7 +6,7 @@ import { ContextMenu } from './menu';
 // -------- импортируем сюда свой класс --------
 import { SayKuku } from './modules/kuku.module'; // для примера
 import { BackgroundModule } from './modules/background.module';
-import { RandomFigure } from './modules/random-figure';
+import { RandomFigure } from './modules/random-figure.module';
 import { AnimatedBackground } from './modules/animated-background.module';
 import { ClicksModule } from './modules/clicks.module';
 
