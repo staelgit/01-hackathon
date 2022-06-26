@@ -1,10 +1,10 @@
 import { Module } from '../core/module';
 
 export class AnimatedBackground extends Module {
-  #seconds;
+  #timeToDisplay;
   constructor(timeToDisplay) {
-    super('animated', `Покажи красивую заставку (${timeToDisplay} сек)`);
-    this.#seconds = timeToDisplay;
+    super('animated', `Покажи анимированную заставку (${timeToDisplay} сек)`);
+    this.#timeToDisplay = timeToDisplay;
   }
 
   trigger() {
@@ -127,22 +127,22 @@ export class AnimatedBackground extends Module {
       </div>
       `
     );
-    let seconds = this.#seconds;
+    let timerСounter = this.#timeToDisplay;
     const timerHTML = document.createElement('div');
     timerHTML.className = 'animated-background__timer';
     animatedBackgroundHTML.prepend(timerHTML);
-    timerHTML.innerText = seconds;
+    timerHTML.innerText = timerСounter;
 
     const timerId = setInterval(() => {
-      seconds -= 1;
-      timerHTML.innerText = seconds;
+      timerСounter -= 1;
+      timerHTML.innerText = timerСounter;
     }, 1000);
     setTimeout(() => {
       clearInterval(timerId);
-    }, this.#seconds * 1000);
+    }, this.#timeToDisplay * 1000);
 
     setTimeout(() => {
       animatedBackgroundHTML.remove();
-    }, this.#seconds * 1000);
+    }, this.#timeToDisplay * 1000);
   }
 }
