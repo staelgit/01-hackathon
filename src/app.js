@@ -17,7 +17,7 @@ contextMenu.add(new SayKuku()); // для примера
 contextMenu.add(new BackgroundModule());
 contextMenu.add(new RandomFigure());
 
-const timeToDisplay = 6;
+const timeToDisplay = 10;
 contextMenu.add(new AnimatedBackground(timeToDisplay));                 
 // contextMenu.add(new ClicksModule());
 
