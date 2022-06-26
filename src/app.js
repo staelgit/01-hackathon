@@ -15,8 +15,10 @@ const contextMenu = new ContextMenu('.menu');
 // -------- генерируем пунк меню из своего класса --------
 contextMenu.add(new SayKuku()); // для примера
 contextMenu.add(new BackgroundModule());
-contextMenu.add(new RandomFigure());                 
-contextMenu.add(new AnimatedBackground());                 
+contextMenu.add(new RandomFigure());
+
+const timeToDisplay = 6;
+contextMenu.add(new AnimatedBackground(timeToDisplay));                 
 // contextMenu.add(new ClicksModule());
 
 

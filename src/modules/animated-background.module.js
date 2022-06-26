@@ -1,12 +1,16 @@
 import { Module } from '../core/module';
 
 export class AnimatedBackground extends Module {
-  constructor() {
-    super('animated', 'Покажи красивую заставку (5 сек)');
+  #seconds;
+  constructor(timeToDisplay) {
+    super('animated', `Покажи красивую заставку (${timeToDisplay} сек)`);
+    this.#seconds = timeToDisplay;
   }
 
   trigger() {
-    const animatedBackgroundHTML = document.createElement('div');
+    let animatedBackgroundHTML = document.querySelector('.animated-background');
+    if (animatedBackgroundHTML) {animatedBackgroundHTML.remove()};
+    animatedBackgroundHTML = document.createElement('div');
     const bodyHTML = document.body;
     animatedBackgroundHTML.className = 'animated-background';
     bodyHTML.style.backgroundColor = 'white';
@@ -123,7 +127,7 @@ export class AnimatedBackground extends Module {
       </div>
       `
     );
-    let seconds = 5;
+    let seconds = this.#seconds;
     const timerHTML = document.createElement('div');
     timerHTML.className = 'animated-background__timer';
     animatedBackgroundHTML.prepend(timerHTML);
@@ -135,10 +139,10 @@ export class AnimatedBackground extends Module {
     }, 1000);
     setTimeout(() => {
       clearInterval(timerId);
-    }, 5000);
+    }, this.#seconds * 1000);
 
     setTimeout(() => {
       animatedBackgroundHTML.remove();
-    }, 5000);
+    }, this.#seconds * 1000);
   }
 }
